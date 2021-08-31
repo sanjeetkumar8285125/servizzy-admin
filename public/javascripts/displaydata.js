@@ -1,4 +1,4 @@
-fetch("/js/carsdata.json")
+fetch("/javascripts/carsdata.json")
   .then((response) => response.json())
   .then((data) => {
     var select = document.getElementById("brandname");
