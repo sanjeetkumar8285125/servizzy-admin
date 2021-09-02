@@ -5,6 +5,7 @@ const app = express();
 const session=require('express-session');
 const flash=require('connect-flash');
 require('dotenv').config();
+app.locals.moment = require('moment');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -45,6 +46,7 @@ app.use('/',require('./routes/paintJobService'));
 app.use('/',require('./routes/mechanicalServices'))
 app.use('/',require('./routes/insuranceService'))
 app.use('/',require('./routes/wheelService'))
+app.use('/',require('./routes/order'))
 app.listen(process.env.PORT || 3000,(err)=>{
 if(err){
   console.log(`error in server creating ${err}`)

@@ -20,6 +20,7 @@ fetch("/javascripts/carsdata.json")
       car = data.data.find((x) => {
         return x.brandName === model;
       });
+      
       //console.log(data.data);
       var select2 = document.getElementById("modelname");
       while (select2.firstChild) {
