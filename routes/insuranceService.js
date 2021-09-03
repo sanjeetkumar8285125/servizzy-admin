@@ -11,7 +11,7 @@ router.post('/insuranceService',async(req,res)=>{
             "carDetails.brandModel":brandModel,
             "carDetails.fuelType":fuelType
         })
-res.render('insuranceService',{data:data,message:"No data found in database"})
+res.render('insuranceService',{data:data,message:"No Service Available"})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})
     }

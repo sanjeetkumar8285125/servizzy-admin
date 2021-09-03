@@ -104,7 +104,7 @@ table {
 }
 .tabledata{
   width: 98%;
-  margin: 0 auto;
+  margin: 20px auto;
   min-width: 1000px;
 }
 .tabledata tr {
