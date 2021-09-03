@@ -1,7 +1,8 @@
 const express=require('express');
 const router=express.Router();
 const orderModel=require('../model/Schema/orderModel')
-router.get('/user/view/:id',async(req,res)=>{
+const authenticate=require('../middleware/auhenticate')
+router.get('/user/view/:id',authenticate,async(req,res)=>{
     const id=req.params.id;
     try{
         const data=await orderModel.find({userId:id},null,{sort:{'createdAt':-1}});
@@ -13,7 +14,7 @@ router.get('/user/view/:id',async(req,res)=>{
 
 })
 
-router.get('/onGoingOrder',async(req,res)=>{
+router.get('/onGoingOrder',authenticate,async(req,res)=>{
     try{
 const data=await orderModel.find({orderStatus:'false'},null,{sort:{'createdAt':-1}})
 res.render('ongoingOrder',{data:data})
@@ -22,7 +23,7 @@ res.render('ongoingOrder',{data:data})
         res.status(200).json({message:"Something went wrong",err:err})
     }
 })
-router.get('/completedOrder',async(req,res)=>{
+router.get('/completedOrder',authenticate,async(req,res)=>{
     try{
 const data=await orderModel.find({orderStatus:'true'},null,{sort:{'createdAt':-1}})
 res.render('completedOrder',{data:data})

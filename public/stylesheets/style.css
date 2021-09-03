@@ -99,10 +99,21 @@ body {
   color: red;
   cursor: pointer;
 }
-
+table {
+  width: 100%;
+}
+.tabledata{
+  width: 98%;
+  margin: 0 auto;
+  min-width: 1000px;
+}
 .tabledata tr {
   font-size: 13px;
 }
+/* .container{
+  width: 1400px;
+} */
+
 /* SERVICE PAGE */
 @media screen and (max-width: 768px) {
   .card {

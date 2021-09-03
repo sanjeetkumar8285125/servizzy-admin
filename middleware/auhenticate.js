@@ -16,7 +16,7 @@ next();
         }
     }catch(err){
         req.flash('success_msg',"Unauthorized:No token provided. First Sign In")
-      res.redirect('/login')
+      res.redirect('/')
         // res.status(401).send('Unauthorized:No token provided. First Sign In')
     }
 

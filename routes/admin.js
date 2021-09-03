@@ -67,7 +67,7 @@ try{
   })
   res.clearCookie('jwttoken')
   await req.user.save();
-  res.render('login');
+  res.redirect('/')
 }catch(err){
   res.status(500).send(err);
 }
