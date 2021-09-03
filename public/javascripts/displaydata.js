@@ -51,11 +51,16 @@ fetch("/javascripts/carsdata.json")
       while (select3.firstChild) {
         select3.removeChild(select3.firstChild);
       }
+<<<<<<< HEAD
       let option2 = document.createElement("option");
       option2.innerHTML = "--Select Fuel Type--";
       select3.appendChild(option2);
       if (model.diesel) {
         option2 = document.createElement("option");
+=======
+      if (model.diesel) {
+        let option2 = document.createElement("option");
+>>>>>>> eef5ead847279b4768604dfab2fa000ff8822e13
         option2.innerHTML = "Diesel";
         select3.appendChild(option2);
       }

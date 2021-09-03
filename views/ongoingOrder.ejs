@@ -44,7 +44,7 @@
             <a class="nav-link" href="/services">Services</a>
           </li>
           <li class="nav-item mx-4">
-            <a class="nav-link " href="/user">Manage Users</a>
+            <a class="nav-link " href="/user">Manage Customers</a>
           </li>
           <li class="nav-item mx-4">
             <a class="nav-link active" href="/ongoingOrder">Ongoing Order</a>
@@ -110,18 +110,24 @@
                     <td><%= row.pickUpSlot %></td>
                     <td><%= row.paymentId %></td>
                     <td><%= moment(row.createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
-                    <td><%=row.orderStatus %></td>
+                    <td><% if(row.orderStatus==='false'){ %>
+                        Ongoing
+                 <% }%>
+                <% if(row.orderStatus==='true') {%>
+                  Completed
+                <% }%>
+                </td>
                     <td> <form action="/admin/order/status" method="POST">
                         <input type="hidden" name="orderId" value="<%= row._id %>">
                         <select name="status" onchange="this.form.submit()" >
                           <option value="false" <% if(row.orderStatus==="false"){ %>
                               <%="selected"%>
                         <%  } %> >
-                          false</option>
+                          Ongoing</option>
                           <option value="true" <% if(row.orderStatus==="true"){%>
                             <%="selected"%>
                       <%  } %> >
-                            true</option>
+                            Completed</option>
                           </select>
                     </form>
                     </td>

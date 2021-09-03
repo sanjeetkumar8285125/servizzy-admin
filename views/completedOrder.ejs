@@ -44,7 +44,7 @@
             <a class="nav-link" href="/services">Services</a>
           </li>
           <li class="nav-item mx-4">
-            <a class="nav-link " href="/user">Manage Users</a>
+            <a class="nav-link " href="/user">Manage Customers</a>
           </li>
           <li class="nav-item mx-4">
             <a class="nav-link " href="/ongoingOrder">Ongoing Order</a>
@@ -110,7 +110,13 @@
                     <td><%= row.pickUpSlot %></td>
                     <td><%= row.paymentId %></td>
                     <td><%= moment(row.createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
-                    <td><%=row.orderStatus %></td>
+                    <td><% if(row.orderStatus==='true'){ %>
+                          Completed
+                  <% } %>
+                  <% if(row.orderStatus==='false'){ %>
+                    Ongoing
+            <% } %>
+                </td>
                   </tr>
             <%})%>
                 </tbody>
