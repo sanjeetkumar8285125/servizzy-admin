@@ -15,7 +15,7 @@ router.get('/user/view/:id',async(req,res)=>{
 
 router.get('/onGoingOrder',async(req,res)=>{
     try{
-const data=await orderModel.find({orderStatus:'false'})
+const data=await orderModel.find({orderStatus:'false'},null,{sort:{'createdAt':-1}})
 res.render('ongoingOrder',{data:data})
 //res.status(200).json({data:data})
     }catch(err){
@@ -24,8 +24,8 @@ res.render('ongoingOrder',{data:data})
 })
 router.get('/completedOrder',async(req,res)=>{
     try{
-const data=await orderModel.find({orderStatus:'true'})
-res.render('ongoingOrder',{data:data})
+const data=await orderModel.find({orderStatus:'true'},null,{sort:{'createdAt':-1}})
+res.render('completedOrder',{data:data})
 //res.status(200).json({data:data})
     }catch(err){
         res.status(200).json({message:"Something went wrong",err:err})
@@ -33,7 +33,7 @@ res.render('ongoingOrder',{data:data})
 })
 
 router.post('/admin/order/status',(req,res)=>{
-    try{
+    
 orderModel.updateOne({_id:req.body.orderId},{orderStatus:req.body.status},(err,data)=>{
     if(err){
         req.flash('error_msg','Something went wrong')
@@ -43,8 +43,6 @@ orderModel.updateOne({_id:req.body.orderId},{orderStatus:req.body.status},(err,d
         res.redirect('/ongoingOrder')
     }
 })
-    }catch(err){
 
-    }
 })
 module.exports=router

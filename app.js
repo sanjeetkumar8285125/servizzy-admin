@@ -30,8 +30,6 @@ app.use(function(req,res,next){
 })
 
 
-
-app.use('/', require('./routes/index'));
 app.use('/',require('./routes/admin'));
 app.use('/',require('./routes/services'));
 app.use('/',require('./routes/manageUser'));
@@ -47,6 +45,8 @@ app.use('/',require('./routes/mechanicalServices'))
 app.use('/',require('./routes/insuranceService'))
 app.use('/',require('./routes/wheelService'))
 app.use('/',require('./routes/order'))
+
+
 app.listen(process.env.PORT || 3000,(err)=>{
 if(err){
   console.log(`error in server creating ${err}`)
