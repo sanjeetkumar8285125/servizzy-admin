@@ -2,7 +2,7 @@ const express=require('express');
 const router=express.Router();
 const ElectricityServiceModel=require('../model/Schema/ElectricityServicePack');
 const authenticate=require('../middleware/auhenticate')
-router.post('/ElectricalService',async(req,res)=>{
+router.post('/ElectricalService',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
         const data=await ElectricityServiceModel.find({
@@ -37,7 +37,7 @@ router.get('/ElectricalService/:id',authenticate,async(req,res)=>{
 })
 
 
-router.post('/ElectricalService/edit',async(req,res)=>{
+router.post('/ElectricalService/edit',authenticate,async(req,res)=>{
 try{
 const id=req.body.id;
 const desc1=req.body.desc1;

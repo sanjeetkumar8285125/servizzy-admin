@@ -3,7 +3,7 @@ const router=express.Router();
 const PaintJobModels=require('../model/Schema/PaintJobModels');
 const authenticate=require('../middleware/auhenticate')
 
-router.post('/paintService',async(req,res)=>{
+router.post('/paintService',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
         const data=await PaintJobModels.find({
@@ -38,7 +38,7 @@ router.get('/paintService/:id',authenticate,async(req,res)=>{
 })
 
 
-router.post('/paintService/edit',async(req,res)=>{
+router.post('/paintService/edit',authenticate,async(req,res)=>{
 try{
 const id=req.body.id;
 const desc1=req.body.desc1;

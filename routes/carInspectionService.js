@@ -3,7 +3,7 @@ const router=express.Router();
 const CarInspectionPackModel=require('../model/Schema/CarInspectionPackModel');
 const authenticate=require('../middleware/auhenticate')
 
-router.post('/carInspection',async(req,res)=>{
+router.post('/carInspection',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
         const data=await CarInspectionPackModel.find({
@@ -38,7 +38,7 @@ router.get('/carInspection/:id',authenticate,async(req,res)=>{
 })
 
 
-router.post('/carInspection/edit',async(req,res)=>{
+router.post('/carInspection/edit',authenticate,async(req,res)=>{
 try{
 const id=req.body.id;
 console.log(id)

@@ -3,7 +3,7 @@ const authenticate = require('../middleware/auhenticate');
 const router=express.Router();
 const CarServicePackModel=require('../model/Schema/ServicePackModel');
 
-router.post('/carService',async(req,res)=>{
+router.post('/carService',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
         const data=await CarServicePackModel.find({
@@ -38,7 +38,7 @@ router.get('/carService/:id',authenticate,async(req,res)=>{
 })
 
 
-router.post('/carService/edit',async(req,res)=>{
+router.post('/carService/edit',authenticate,async(req,res)=>{
 try{
 const id=req.body.id;
 const desc1=req.body.desc1;

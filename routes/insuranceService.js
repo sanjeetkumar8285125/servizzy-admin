@@ -3,7 +3,7 @@ const router=express.Router();
 const insuranceModel=require('../model/Schema/InsurenceServiceModel');
 const authenticate=require('../middleware/auhenticate')
 
-router.post('/insuranceService',async(req,res)=>{
+router.post('/insuranceService',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
         const data=await insuranceModel.find({
@@ -38,7 +38,7 @@ router.get('/insuranceService/:id',authenticate,async(req,res)=>{
 })
 
 
-router.post('/insuranceService/edit',async(req,res)=>{
+router.post('/insuranceService/edit',authenticate,async(req,res)=>{
 try{
 const id=req.body.id;
 const desc1=req.body.desc1;

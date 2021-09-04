@@ -2,7 +2,7 @@ const express=require('express');
 const router=express.Router();
 const batteryServiceModel=require('../model/Schema/BatteryServiceModel');
 const authenticate=require('../middleware/auhenticate')
-router.post('/batteryService',async(req,res)=>{
+router.post('/batteryService',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
         const data=await batteryServiceModel.find({
@@ -37,10 +37,9 @@ router.get('/batteryServices/:id',authenticate,async(req,res)=>{
 })
 
 
-router.post('/batteryServices/edit',async(req,res)=>{
+router.post('/batteryServices/edit',authenticate,async(req,res)=>{
 try{
 const id=req.body.id;
-console.log(id)
 const desc1=req.body.desc1;
 const desc2=req.body.desc2;
 const time=req.body.time;

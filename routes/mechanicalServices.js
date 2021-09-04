@@ -3,7 +3,7 @@ const router=express.Router();
 const MecahanicalPackModel=require('../model/Schema/MecahanicalPackModel');
 const authenticate=require('../middleware/auhenticate')
 
-router.post('/mechanicalService',async(req,res)=>{
+router.post('/mechanicalService',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
         const data=await MecahanicalPackModel.find({
@@ -38,7 +38,7 @@ router.get('/mechanicalService/:id',authenticate,async(req,res)=>{
 })
 
 
-router.post('/mechanicalService/edit',async(req,res)=>{
+router.post('/mechanicalService/edit',authenticate,async(req,res)=>{
 try{
 const id=req.body.id;
 const desc1=req.body.desc1;

@@ -3,7 +3,7 @@ const router=express.Router();
 const WindSheildModel=require('../model/Schema/WindSheildModel');
 const authenticate=require('../middleware/auhenticate')
 
-router.post('/windshieldService',async(req,res)=>{
+router.post('/windshieldService',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
         const data=await WindSheildModel.find({
@@ -38,7 +38,7 @@ router.get('/windshieldService/:id',authenticate,async(req,res)=>{
 })
 
 
-router.post('/windshieldService/edit',async(req,res)=>{
+router.post('/windshieldService/edit',authenticate,async(req,res)=>{
 try{
 const id=req.body.id;
 const desc1=req.body.desc1;

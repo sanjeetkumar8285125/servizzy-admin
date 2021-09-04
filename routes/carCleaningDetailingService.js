@@ -2,7 +2,7 @@ const express=require('express');
 const router=express.Router();
 const carCleaingModel=require('../model/Schema/CarCleaningModel');
 const authenticate=require('../middleware/auhenticate')
-router.post('/cleaningService',async(req,res)=>{
+router.post('/cleaningService',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
         const data=await carCleaingModel.find({
@@ -37,7 +37,7 @@ router.get('/cleaningService/:id',authenticate,async(req,res)=>{
 })
 
 
-router.post('/cleaningService/edit',async(req,res)=>{
+router.post('/cleaningService/edit',authenticate,async(req,res)=>{
 try{
 const id=req.body.id;
 console.log(id)

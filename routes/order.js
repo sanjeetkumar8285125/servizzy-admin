@@ -33,7 +33,7 @@ res.render('completedOrder',{data:data})
     }
 })
 
-router.post('/admin/order/status',(req,res)=>{
+router.post('/admin/order/status',authenticate,(req,res)=>{
     
 orderModel.updateOne({_id:req.body.orderId},{orderStatus:req.body.status},(err,data)=>{
     if(err){

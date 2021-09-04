@@ -102,7 +102,7 @@ body {
 table {
   width: 100%;
 }
-.tabledata{
+.tabledata {
   width: 98%;
   margin: 20px auto;
   min-width: 1000px;
@@ -110,6 +110,10 @@ table {
 .tabledata tr {
   font-size: 13px;
 }
+.blue-eye {
+  color: #1f85de !important;
+}
+
 /* .container{
   width: 1400px;
 } */
