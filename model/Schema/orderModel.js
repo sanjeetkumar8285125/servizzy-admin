@@ -46,6 +46,24 @@ const OrderModelSchema = new mongoose.Schema(
       odometerReading: {
          type: String,
          default: '0',
+      },
+      serviceDate:{
+         type:String
+      },
+      serviceType:{
+         type:String
+      },
+      invoiceAmount:{
+         type:String
+      },
+      dealerName:{
+         type:String
+      },
+      invoicePDF:{
+         type:String
+      },
+      cloudinary_id:{
+         type:String
       }
    }, { timestamps: true, }
 );

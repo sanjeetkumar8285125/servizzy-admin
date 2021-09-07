@@ -117,7 +117,7 @@
                   Completed
                 <% }%>
                 </td>
-                    <td> <form action="/admin/order/status" method="POST">
+                     <td style="text-align: center;"><!-- <form action="/admin/order/status" method="POST">
                         <input type="hidden" name="orderId" value="<%= row._id %>">
                         <select name="status" onchange="this.form.submit()" >
                           <option value="false" <% if(row.orderStatus==="false"){ %>
@@ -129,7 +129,9 @@
                       <%  } %> >
                             Completed</option>
                           </select>
-                    </form>
+                    </form> -->
+
+                    <a href="/admin/order/<%=row._id %>" ><i class="fas fa-eye blue-eye"></i></a>
                     </td>
                   </tr>
             <%})%>
