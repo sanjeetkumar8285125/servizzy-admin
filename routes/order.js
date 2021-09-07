@@ -35,7 +35,7 @@ res.render('ongoingOrder',{data:data})
 })
 router.get('/completedOrder',authenticate,async(req,res)=>{
     try{
-const data=await orderModel.find({orderStatus:'true'},null,{sort:{'createdAt':-1}})
+const data=await orderModel.find({orderStatus:'true'},null,{sort:{'updatedAt':-1}})
 res.render('completedOrder',{data:data})
 //res.status(200).json({data:data})
     }catch(err){
