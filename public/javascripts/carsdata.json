@@ -2160,12 +2160,6 @@
           "modelImage": "../images/modelsimage/hindustanmotors/hmambassador.jpg",
           "petrol": true,
           "diesel": true
-        },
-        {
-          "modelName": "Contessa",
-          "modelImage": "../images/modelsimage/hindustanmotors/hmcontessa.jpg",
-          "petrol": true,
-          "diesel": true
         }
       ]
     },

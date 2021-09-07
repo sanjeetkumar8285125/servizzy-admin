@@ -12,8 +12,7 @@ fetch("/javascripts/carsdata.json")
     var model = "";
     let car;
     choose.addEventListener("change", () => {
-      // add.createElement("option");
-      // add.innerHTML = data.data[0].brandName;
+      
       console.log(choose.value);
       model = choose.value;
       var temp = document.getElementById("brandname").value;
@@ -21,7 +20,7 @@ fetch("/javascripts/carsdata.json")
         return x.brandName === model;
       });
       
-      //console.log(data.data);
+      
       var select2 = document.getElementById("modelname");
       while (select2.firstChild) {
         select2.removeChild(select2.firstChild);
@@ -37,12 +36,11 @@ fetch("/javascripts/carsdata.json")
     });
 
     add.addEventListener("change", () => {
-      // add.createElement("option");
-      // add.innerHTML = data.data[0].brandName;
+      
       console.log(car);
       model = add.value;
       console.log(model);
-      // var temp = document.getElementById("brandname").value;
+     
       model = car.models.find((x) => {
         return x.modelName === model;
       });
@@ -65,13 +63,5 @@ fetch("/javascripts/carsdata.json")
         select3.appendChild(option2);
       }
 
-      // while (select2.firstChild) {
-      //   select2.removeChild(select2.firstChild);
-      // }
-      // for (var i = 0; i < car.models.length; i++) {
-      //   var option2 = document.createElement("option");
-      //   option2.innerHTML = car.models[i].modelName;
-      //   select2.appendChild(option2);
-      // }
     });
   });
