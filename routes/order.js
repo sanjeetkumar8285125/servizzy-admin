@@ -67,7 +67,7 @@ res.status(400).json({message:"Something Went Wrong",err:err,success:false})
     }
 })
 
-router.post('/admin/order/status',upload.single('invoicePdf'),authenticate,async(req,res)=>{
+router.post('/admin/order/status',upload.single('invoicePdf'),async(req,res)=>{
     try{
 const {orderid,serviceDate,serviceType,invoiceAmount,odometerReading,dealerName}=req.body;
 const result=await cloudinary.uploader.upload(req.file.path)
