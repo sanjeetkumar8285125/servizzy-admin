@@ -127,10 +127,6 @@
           "diesel": true
         },
         {
-          "modelName": "8",
-          "modelImage": "../images/modelsimage/bmw/8.png"
-        },
-        {
           "modelName": "M5",
           "modelImage": "../images/modelsimage/bmw/m2.png",
           "petrol": true,
@@ -194,12 +190,7 @@
           "petrol": true,
           "diesel": true
         },
-        {
-          "modelName": "Xl6",
-          "modelImage": "../images/modelsimage/bmw/xl6.png",
-          "petrol": true,
-          "diesel": true
-        },
+  
         {
           "modelName": "Z4",
           "modelImage": "../images/modelsimage/bmw/z4.png",
@@ -425,12 +416,7 @@
       "brandName": "Ford",
       "brandImage": "../images/carBrands/ford.png",
       "models": [
-        {
-          "modelName": "Aspire",
-          "modelImage": "../images/modelsimage/ford/aspire.png",
-          "petrol": true,
-          "diesel": true
-        },
+       
         {
           "modelName": "Eco Sport",
           "modelImage": "../images/modelsimage/ford/ecosport.png",
@@ -593,13 +579,8 @@
           "modelImage": "../images/modelsimage/honda/mobilio.jpeg",
           "petrol": true,
           "diesel": true
-        },
-        {
-          "modelName": "WRV",
-          "modelImage": "../images/modelsimage/honda/wrv.jpeg",
-        "petrol": true,
-          "diesel": true
         }
+        
       ]
     },
     {
@@ -637,12 +618,7 @@
           "petrol": true,
           "diesel": true
         },
-        {
-          "modelName": "Kona",
-          "modelImage": "../images/modelsimage/hyundai/kona.png",
-        "petrol": true,
-          "diesel": true
-        },
+        
         {
           "modelName": "Santro",
           "modelImage": "../images/modelsimage/hyundai/santro.png",
@@ -818,12 +794,6 @@
           "modelImage": "../images/modelsimage/jeep/compass.png",
           "petrol": true,
           "diesel": true
-        },
-        {
-          "modelName": "Wrangler",
-          "modelImage": "../images/modelsimage/jeep/wrangler.png",
-        "petrol": true,
-          "diesel": true
         }
       ]
     },
@@ -985,30 +955,6 @@
       "brandImage": "../images/carBrands/mercedes.png",
       "models": [
         {
-          "modelName": "A",
-          "modelImage": "../images/modelsimage/mercedes/a.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "E",
-          "modelImage": "../images/modelsimage/mercedes/e.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "GLC",
-          "modelImage": "../images/modelsimage/mercedes/glc.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "GLS",
-          "modelImage": "../images/modelsimage/mercedes/gls.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
           "modelName": "A-Class",
           "modelImage": "../images/modelsimage/mercedes/aclass.jpeg",
           "petrol": true,
@@ -1111,24 +1057,6 @@
       "brandName": "Mitsubishi",
       "brandImage": "../images/carBrands/mitsubishi.png",
       "models": [
-        {
-          "modelName": "Eclipse",
-          "modelImage": "../images/modelsimage/mitsubishi/eclipse.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Evoxl",
-          "modelImage": "../images/modelsimage/mitsubishi/evoxl.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Xpander",
-          "modelImage": "../images/modelsimage/mitsubishi/xpander.png",
-          "petrol": true,
-          "diesel": true
-        },
         {
           "modelName": "Cedia",
           "modelImage": "../images/modelsimage/mitsubishi/cedia.jpeg",
@@ -1306,12 +1234,7 @@
       "brandName": "Skoda",
       "brandImage": "../images/carBrands/skoda.png",
       "models": [
-        {
-          "modelName": "Karoq",
-          "modelImage": "../images/modelsimage/skoda/karoq.png",
-          "petrol": true,
-          "diesel": true
-        },
+        
         {
           "modelName": "Octavia",
           "modelImage": "../images/modelsimage/skoda/octavia.png",
@@ -1584,12 +1507,7 @@
           "petrol": true,
           "diesel": true
         },
-        {
-          "modelName": "Vellfire",
-          "modelImage": "../images/modelsimage/toyota/vellfire.png",
-          "petrol": true,
-          "diesel": true
-        },
+        
         {
           "modelName": "Yaris",
           "modelImage": "../images/modelsimage/toyota/yaris.png",
@@ -1681,12 +1599,7 @@
           "petrol": false,
           "diesel": true
         },
-        {
-          "modelName": "Troc",
-          "modelImage": "../images/modelsimage/volkswagen/troc.png",
-          "petrol": true,
-          "diesel": true
-        },
+     
         {
           "modelName": "Vento",
           "modelImage": "../images/modelsimage/volkswagen/vento.png",
@@ -1730,18 +1643,7 @@
       "brandName": "Volvo",
       "brandImage": "../images/carBrands/volvo.png",
       "models": [
-        {
-          "modelName": "CX40",
-          "modelImage": "../images/modelsimage/volvo/cx40.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "CX60",
-          "modelImage": "../images/modelsimage/volvo/cx60.png",
-          "petrol": true,
-          "diesel": true
-        },
+        
         {
           "modelName": "S60",
           "modelImage": "../images/modelsimage/volvo/s60.png",
@@ -1816,85 +1718,7 @@
         }
       ]
     },
-    {
-      "_id": "6098aa8c349e41c3a3d75e1f",
-      "brandName": "Suzuki",
-      "brandImage": "../images/carBrands/suzuki.png",
-      "models": [
-        {
-          "modelName": "Alto",
-          "modelImage": "../images/modelsimage/suzuki/alto.png",
-          "petrol": true,
-          "diesel": false
-        },
-        {
-          "modelName": "Baleno",
-          "modelImage": "../images/modelsimage/suzuki/baleno.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Brezza",
-          "modelImage": "../images/modelsimage/suzuki/brezza.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Celerio",
-          "modelImage": "../images/modelsimage/suzuki/celerio.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Ciaz",
-          "modelImage": "../images/modelsimage/suzuki/ciaz.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Dzire",
-          "modelImage": "../images/modelsimage/suzuki/dzire.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Ertiga",
-          "modelImage": "../images/modelsimage/suzuki/ertiga.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Ignis",
-          "modelImage": "../images/modelsimage/suzuki/ignis.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Scross",
-          "modelImage": "../images/modelsimage/suzuki/scross.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Spresso",
-          "modelImage": "../images/modelsimage/suzuki/spresso.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Swift",
-          "modelImage": "../images/modelsimage/suzuki/swift.png",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Wagon R",
-          "modelImage": "../images/modelsimage/suzuki/wagonr.png",
-          "petrol": true,
-          "diesel": false
-        }
-      ]
-    },
+   
     {
       "brandName": "Aston Martin",
       "brandImage": "../images/carBrands/astonmartin.jpg",
@@ -1905,18 +1729,7 @@
           "petrol": true,
           "diesel": false
         },
-        {
-          "modelName": "DB11",
-          "modelImage": "../images/modelsimage/astonmartin/astonmartindb11.jpg",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "DBX",
-          "modelImage": "../images/modelsimage/astonmartin/astonmartindbx.jpg",
-          "petrol": true,
-          "diesel": true
-        },
+        
         {
           "modelName": "Rapide",
           "modelImage": "../images/modelsimage/astonmartin/rapide.jpeg",
@@ -1943,12 +1756,7 @@
       "brandName": "Bentley",
       "brandImage": "../images/carBrands/bentley.jpg",
       "models": [
-        {
-          "modelName": "Bentayga",
-          "modelImage": "../images/modelsimage/bentley/bentleybentayga.jpg",
-          "petrol": true,
-          "diesel": true
-        },
+     
         {
           "modelName": "Continental",
           "modelImage": "../images/modelsimage/bentley/continental.jpeg",
@@ -2009,36 +1817,7 @@
       "brandName": "Ferrari",
       "brandImage": "../images/carBrands/ferrari.jpg",
       "models": [
-        {
-          "modelName": "812",
-          "modelImage": "../images/modelsimage/ferrari/ferrari812.jpg",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Roma",
-          "modelImage": "../images/modelsimage/ferrari/ferrariroma.jpg",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Tributo",
-          "modelImage": "../images/modelsimage/ferrari/ferraritributo.jpg",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Portofino",
-          "modelImage": "../images/modelsimage/ferrari/ferrariportofino.jpg",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Stradale-SF90",
-          "modelImage": "../images/modelsimage/ferrari/stradalesf90.jpg",
-          "petrol": true,
-          "diesel": true
-        },
+       
         {
           "modelName": "458 Italia",
           "modelImage": "../images/modelsimage/ferrari/458italia.jpeg",
@@ -2057,24 +1836,14 @@
           "petrol": true,
           "diesel": false
         },
-        {
-          "modelName": "812",
-          "modelImage": "../images/modelsimage/ferrari/812.gif",
-          "petrol": true,
-          "diesel": true
-        },
+  
         {
           "modelName": "California",
           "modelImage": "../images/modelsimage/ferrari/california.jpeg",
           "petrol": true,
           "diesel": false
         },
-        {
-          "modelName": "F8 Tributo",
-          "modelImage": "../images/modelsimage/ferrari/f8tributo.webp",
-          "petrol": true,
-          "diesel": true
-        },
+   
         {
           "modelName": "F12 Berlinetta",
           "modelImage": "../images/modelsimage/ferrari/f12berlinetta.jpeg",
@@ -2105,12 +1874,7 @@
           "petrol": false,
           "diesel": true
         },
-        {
-          "modelName": "Motors-Trax-Cruiser",
-          "modelImage": "../images/modelsimage/force/forcemotorstraxcruiser.jpg",
-          "petrol": false,
-          "diesel": true
-        },
+    
         {
           "modelName": "Traveller 3350",
           "modelImage":
@@ -2131,18 +1895,7 @@
       "brandName": "Photon",
       "brandImage": "../images/carBrands/foton.jpg",
       "models": [
-        {
-          "modelName": "SUP Double Cabin",
-          "modelImage": "../images/modelsimage/foton/fotonsupdoublecabin.jpg",
-          "petrol": true,
-          "diesel": true
-        },
-        {
-          "modelName": "Tunland Offroad",
-          "modelImage": "../images/modelsimage/foton/fotontunlandoffroad.jpg",
-          "petrol": true,
-          "diesel": true
-        },
+        
         {
           "modelName": "VIW CS2",
           "modelImage": "../images/modelsimage/foton/fotonviewc.jpg",
@@ -2167,12 +1920,7 @@
       "brandName": "Isuzu",
       "brandImage": "../images/carBrands/isuzu.jpg",
       "models": [
-        {
-          "modelName": "D-Max",
-          "modelImage": "../images/modelsimage/isuzu/isuzudmax.jpeg",
-          "petrol": false,
-          "diesel": true
-        },
+    
         {
           "modelName": "MU7",
           "modelImage": "../images/modelsimage/isuzu/isuzumux.jpeg",
@@ -2215,18 +1963,7 @@
           "petrol": true,
           "diesel": false
         },
-        {
-          "modelName": "Lamborgini Aventador SVJ",
-          "modelImage": "../images/modelsimage/lamborgini/lamborghiniaventadorsvj.jpeg",
-          "petrol": true,
-          "diesel": false
-        },
-        {
-          "modelName": "Urus",
-          "modelImage": "../images/modelsimage/lamborgini/urus.jpg",
-          "petrol": true,
-          "diesel": false
-        },
+       
         {
           "modelName": "Aventador",
           "modelImage":
@@ -2240,12 +1977,7 @@
       "brandName": "Land Rover",
       "brandImage": "../images/carBrands/landrover.jpg",
       "models": [
-        {
-          "modelName": "Defender",
-          "modelImage": "../images/modelsimage/landrover/defender.jpeg",
-          "petrol": true,
-          "diesel": true
-        },
+    
         {
           "modelName": "Discovery 4",
           "modelImage": "../images/modelsimage/landrover/dicovery4.jpeg",
@@ -2270,12 +2002,7 @@
           "petrol": true,
           "diesel": true
         },
-        {
-          "modelName": "Discovery",
-          "modelImage": "../images/modelsimage/landrover/landroverdiscovery.jpeg",
-          "petrol": true,
-          "diesel": true
-        },
+ 
         {
           "modelName": "Range Rover Velar",
           "modelImage":
@@ -2374,12 +2101,7 @@
           "petrol": true,
           "diesel": true
         },
-        {
-          "modelName": "Grand Vitara",
-          "modelImage": "../images/modelsimage/marutisuzuki/grandvitara20092015.jpg",
-          "petrol": true,
-          "diesel": true
-        },
+     
         {
           "modelName": "Gypsy",
           "modelImage": "../images/modelsimage/marutisuzuki/gypsy.jpeg",
@@ -2514,12 +2236,7 @@
           "petrol": true,
           "diesel": true
         },
-        {
-          "modelName": "Levante",
-          "modelImage": "../images/modelsimage/maserati/maseratilevante.jpeg",
-          "petrol": true,
-          "diesel": true
-        },
+   
         {
           "modelName": "GranCabrio",
           "modelImage": "../images/modelsimage/maserati/maseratigrancabriomc.jpg",
@@ -2532,12 +2249,7 @@
       "brandName": "MG",
       "brandImage": "../images/carBrands/mg.jpg",
       "models": [
-        {
-          "modelName": "Hector Plus",
-          "modelImage": "../images/modelsimage/mg/hectorplus.jpg",
-          "petrol": true,
-          "diesel": true
-        },
+   
         {
           "modelName": "Gloster",
           "modelImage": "../images/modelsimage/mg/gloster.jpg",
@@ -2549,13 +2261,8 @@
           "modelImage": "../images/modelsimage/mg/hector.jpg",
           "petrol": true,
           "diesel": true
-        },
-        {
-          "modelName": "Zs Ev",
-          "modelImage": "../images/modelsimage/mg/zsev.jpg",
-          "petrol": true,
-          "diesel": true
         }
+       
       ]
     },
     {
@@ -2639,12 +2346,6 @@
           "modelImage": "../images/modelsimage/porshe/Boxter.png",
           "petrol": true,
           "diesel": false
-        },
-        {
-          "modelName": "Cayenne Coupe",
-          "modelImage": "../images/modelsimage/porshe/porschecayennecoupe.jpeg",
-          "petrol": true,
-          "diesel": true
         }
       ]
     },
@@ -2652,18 +2353,7 @@
       "brandName": "Rolls Royce",
       "brandImage": "../images/carBrands/rollsroyce.jpg",
       "models": [
-        {
-          "modelName": "Cullinan",
-          "modelImage": "../images/modelsimage/rollsroyce/rollsroycecullinan.jpg",
-          "petrol": true,
-          "diesel": false
-        },
-        {
-          "modelName": "Dawn",
-          "modelImage": "../images/modelsimage/rollsroyce/rollsroycedawn.jpg",
-          "petrol": true,
-          "diesel": false
-        },
+     
         {
           "modelName": "Ghost",
           "modelImage": "../images/modelsimage/rollsroyce/Ghost.jpeg",
