@@ -47,7 +47,7 @@ app.use('/',require('./routes/mechanicalServices'))
 app.use('/',require('./routes/insuranceService'))
 app.use('/',require('./routes/wheelService'))
 app.use('/',require('./routes/order'))
-
+app.use('/',require('./routes/offlineOrder'))
 
 app.listen(process.env.PORT || 3000,(err)=>{
 if(err){
