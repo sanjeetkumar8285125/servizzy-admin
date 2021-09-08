@@ -108,7 +108,8 @@ res.redirect('/offlineOrder')
 // res.status(201).json({message:"order created Successfully",success:true,data:data})
     }
     catch(err){
-        res.status(400).json({message:"Something went wrong",err:err})
+        req.flash('error_msg','Something Went Wrong')
+        res.redirect('/offlineOrder')
     }
 })
 
