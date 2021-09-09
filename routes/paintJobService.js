@@ -11,7 +11,7 @@ router.post('/paintService',authenticate,async(req,res)=>{
             "carDetails.brandModel":brandModel,
             "carDetails.fuelType":fuelType
         })
-res.render('paintJobService',{data:data,message:"No Service Available"})
+res.render('paintJobService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})
     }
@@ -19,7 +19,7 @@ res.status(400).json({message:"Something went wrong",success:false,err:err})
 
 router.get('/paintService',authenticate,(req,res)=>{
     try{
-     res.render('paintJobService',{data:'',message:''})
+     res.render('paintJobService',{data:'',message:'',brandName:'',brandModel:'',fuelType:''})
     }
     catch(err){
         res.status(400).json({message:"Something went wrong"})

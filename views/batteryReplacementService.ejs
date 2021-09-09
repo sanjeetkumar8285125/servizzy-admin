@@ -92,6 +92,7 @@
     </div>
     <div class="container table-responsive mt-5">
       <% if(data.length >0){ %>
+        <h2>Getting result of <%=brandName %> - <%= brandModel %> - <%= fuelType %></h2>
       <table class="table table-bordered table-hover">
         <thead class="thead-dark">
           <tr>
@@ -120,7 +121,7 @@
         </tbody>
       </table>
       <%}else{%>
-<p><%=message%></p>
+        <p><%=message%> <%=brandName %> <%= brandModel %> <%= fuelType %></p>
      <% } %>
     </div>
     <!-- <div

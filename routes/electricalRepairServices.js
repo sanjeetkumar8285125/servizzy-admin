@@ -10,7 +10,7 @@ router.post('/ElectricalService',authenticate,async(req,res)=>{
             "carDetails.brandModel":brandModel,
             "carDetails.fuelType":fuelType
         })
-res.render('electricalRepairServices',{data:data,message:"No Service Available"})
+res.render('electricalRepairServices',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})
     }
@@ -18,7 +18,7 @@ res.status(400).json({message:"Something went wrong",success:false,err:err})
 
 router.get('/ElectricalService',authenticate,(req,res)=>{
     try{
-     res.render('electricalRepairServices',{data:'',message:''})
+     res.render('electricalRepairServices',{data:'',message:'',brandName:'',brandModel:'',fuelType:''})
     }
     catch(err){
         res.status(400).json({message:"Something went wrong"})
