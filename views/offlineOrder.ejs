@@ -76,6 +76,7 @@
                       class="form-control"
                       name="name"
                       id="name"
+                      required
                     />
                     </div>
                     <div class="form-group ">
@@ -85,6 +86,7 @@
                           class="form-control"
                           name="phone"
                           id="phone"
+                          required
                         />
                   </div>
                   <div class="form-group ">
@@ -94,26 +96,27 @@
                       class="form-control"
                       name="email"
                       id="email"
+                      required
                     />
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Brand Name</label>
-                        <select class="form-control" id="brandname" name="brandName">
-                          <option>--Select Brand Name--</option>
+                        <select class="form-control" id="brandname" name="brandName" required>
+                          <option value="">--Select Brand Name--</option>
                         </select>
                       </div>
                       <div class="form-group">
                         <label for="exampleFormControlSelect1">Model Name</label>
-                        <select class="form-control" id="modelname" name="brandModel">
-                          <option>--Select Model Name--</option>
+                        <select class="form-control" id="modelname" name="brandModel" required>
+                          <option value="">--Select Model Name--</option>
                         </select>
                       </div>
                       <div class="form-group">
                         <label for="exampleFormControlSelect1">Fuel Type</label>
-                        <select class="form-control" id="fueltype" name="fuelType">
+                        <select class="form-control" id="fueltype" name="fuelType" required>
                           <!-- <option value="Diesel">Diesel</option>
                           <option value="Petrol">Petrol</option> -->
-                          <option>--Select Fuel Type--</option>
+                          <option value="">--Select Fuel Type--</option>
                         </select>
                       </div>
                       <div class="form-row">
@@ -125,27 +128,23 @@
                               name="serviceName"
                               placeholder="Service Description"
                               rows="2"
+                              required
                             ></textarea>
                           </div>
                           <div class="form-group col-md-6">
-                            <label for="serviceprice">Service Price</label>
+                            <label for="CreateDate">Order Placed At</label>
                             <input
-                              type="text"
+                              type="date"
                               class="form-control"
-                              name="servicePrice"
-                              id="servicePrice"
+                              name="createDate"
+                              id="createDate"
+                              required
                             />
-                          </div>
                         </div>
-                        <div class="form-group ">
-                          <label for="CreateDate">Created At</label>
-                          <input
-                            type="date"
-                            class="form-control"
-                            name="createDate"
-                            id="createDate"
-                          />
                       </div>
+                        <!-- <div class="form-group ">
+                         
+                      </div> -->
                   <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="serviceDate">Service Date</label>
@@ -154,11 +153,13 @@
                       class="form-control"
                       name="serviceDate"
                       id="serviceDate"
+                      required
                     />
                   </div>
                   <div class="form-group col-md-6">
                     <label for="serviceType">Service Type</label>
-                    <select class="form-control" id="serviceType" name="serviceType">
+                    <select class="form-control" id="serviceType" name="serviceType" required>
+                      <option value="">--Select Service Type--</option>
                       <option value="Ac Servicing">Ac Servicing</option>
                       <option value="Battery Replacement">Battery Replacement</option>
                       <option value="Car Service">Car Service</option>
@@ -183,6 +184,7 @@
                     class="form-control"
                     name="invoiceAmount"
                     id="invoiceAmount"
+                    required
                   />
                 </div>
                 <div class="form-group col-md-6">
@@ -192,6 +194,7 @@
                       class="form-control"
                       name="odometerReading"
                       id="odometerReading"
+                      required
                     />
                   </div>
             </div>
@@ -203,6 +206,7 @@
                       class="form-control"
                       name="dealerName"
                       id="dealerName"
+                      required
                     />
                   </div>
                   <div class="form-group col-md-6">
@@ -212,6 +216,7 @@
                       class="form-control"
                       name="invoicePdf"
                       id="invoicePdf"
+                      required
                     />
                   </div>
                 </div>

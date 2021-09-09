@@ -19,7 +19,7 @@ router.get('/offlineOrder',authenticate,(req,res)=>{
 
 router.post('/offlineOrder',upload.single('invoicePdf'),async(req,res)=>{
     try{
-const {name,phone,email,brandName,brandModel,fuelType,serviceName,servicePrice,createDate,serviceDate,serviceType,invoiceAmount,odometerReading,dealerName}=req.body;
+const {name,phone,email,brandName,brandModel,fuelType,serviceName,createDate,serviceDate,serviceType,invoiceAmount,odometerReading,dealerName}=req.body;
 const result=await cloudinary.uploader.upload(req.file.path)
 const phoneNoExist=await registrationModel.findOne({phoneNumber:phone});
 let orderdata;
@@ -43,8 +43,7 @@ orderdata=new orderModel({
         }
     },
     items:[{
-        name:serviceName,
-        price:servicePrice,
+        name:serviceName
     }],
     userId:phoneNoExist._id,
     paymentId:"Offline Order",
@@ -85,8 +84,7 @@ else{
             }
         },
         items:[{
-            name:serviceName,
-            price:servicePrice,
+            name:serviceName
         }],
         userId:userData._id,
         paymentId:"Offline Order",
