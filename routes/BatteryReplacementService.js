@@ -5,11 +5,18 @@ const authenticate=require('../middleware/auhenticate')
 router.post('/batteryService',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
-        const data=await batteryServiceModel.find({
-            "carDetails.brandName":brandName,
-            "carDetails.brandModel":brandModel,
-            "carDetails.fuelType":fuelType
-        })
+        const data=await batteryServiceModel.find({$and:[
+            {"carDetails.brandName":brandName},
+            {"carDetails.brandModel":brandModel},
+            {"carDetails.fuelType":fuelType},
+            {"title":{
+                $in:[
+                    "Amaron(55 Months Warranty)",
+                    "Exide(55 Months Warranty)",
+                    "Livguard(60 Months Warranty)"
+                ]
+            }}
+        ]})
 res.render('batteryReplacementService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})

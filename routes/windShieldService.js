@@ -6,11 +6,16 @@ const authenticate=require('../middleware/auhenticate')
 router.post('/windshieldService',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
-        const data=await WindSheildModel.find({
-            "carDetails.brandName":brandName,
-            "carDetails.brandModel":brandModel,
-            "carDetails.fuelType":fuelType
-        })
+        const data=await WindSheildModel.find({$and:[{
+            "carDetails.brandName":brandName},
+            {"carDetails.brandModel":brandModel},
+            {"carDetails.fuelType":fuelType},
+            {"title":{
+                $in:["Door Glass Change" ,
+                "Front Windshield Change",
+                "Rear Windshield Change"]
+            }}
+        ]})
 res.render('windShieldService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})

@@ -6,11 +6,22 @@ const authenticate=require('../middleware/auhenticate')
 router.post('/mechanicalService',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
-        const data=await MecahanicalPackModel.find({
-            "carDetails.brandName":brandName,
-            "carDetails.brandModel":brandModel,
-            "carDetails.fuelType":fuelType
-        })
+        const data=await MecahanicalPackModel.find({$and:[{
+            "carDetails.brandName":brandName},
+            {"carDetails.brandModel":brandModel},
+            {"carDetails.fuelType":fuelType},
+            {"title":{
+                $in:[
+                    "Complete Engine Scanning",
+                    "Complete Suspension Check-up",
+                    "Clutch Set Change",
+                    "Fluids Inspection",
+                    "Engine Mounting Replacement",
+                    "Front Shock Absorber Replacement",
+                    "Rear Shock Absorber Replacement"
+                ]
+            }}
+        ]})
 res.render('mechanicalServices',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})

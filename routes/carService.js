@@ -6,11 +6,15 @@ const CarServicePackModel=require('../model/Schema/ServicePackModel');
 router.post('/carService',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
-        const data=await CarServicePackModel.find({
-            "carDetails.brandName":brandName,
-            "carDetails.brandModel":brandModel,
-            "carDetails.fuelType":fuelType
-        })
+        const data=await CarServicePackModel.find({$and:[{
+            "carDetails.brandName":brandName},
+            {"carDetails.brandModel":brandModel},
+            {"carDetails.fuelType":fuelType},
+            {title:{$in:[
+                "Prime Service",
+                "Standard Service"
+            ]}}
+        ]})
 res.render('carService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})

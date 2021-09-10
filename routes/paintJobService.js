@@ -6,11 +6,25 @@ const authenticate=require('../middleware/auhenticate')
 router.post('/paintService',authenticate,async(req,res)=>{
     const {brandName,brandModel,fuelType}=req.body
     try{
-        const data=await PaintJobModels.find({
-            "carDetails.brandName":brandName,
-            "carDetails.brandModel":brandModel,
-            "carDetails.fuelType":fuelType
-        })
+        const data=await PaintJobModels.find({$and:[{
+            "carDetails.brandName":brandName},
+            {"carDetails.brandModel":brandModel},
+            {"carDetails.fuelType":fuelType},
+            {"title":{$in:[
+                "Bonnet Paint Job",
+                "Front Bumper Paint Job",
+                "Rear Bumper Paint Job",
+                "Left Fender Paint Job",
+                "Right Fender Paint Job",
+                "Left Front Door Paint",
+                "Left Rear Door Paint",
+                "Right Rear Door Paint",
+                "Right Front Door Paint",
+                "Boot Paint Job",
+                "Alloy Paint Job",
+                "Full Body Dent Paint"
+            ]}}
+        ]})
 res.render('paintJobService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})
