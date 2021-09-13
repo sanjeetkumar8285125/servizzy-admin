@@ -45,7 +45,7 @@ router.post('/login',async(req,res)=>{
     }
     else{
       const token=await user.generateToken();
-      res.cookie('jwttoken',token,{
+      res.cookie('servizzyJwtToken',token,{
         expires:new Date(Date.now()+ 86400000)  
       })
       // res.status(200).json({message:"admin login Successfully",success:true})
@@ -65,7 +65,7 @@ try{
   req.user.tokens=req.user.tokens.filter((currElement)=>{
     return currElement.token!==req.token
   })
-  res.clearCookie('jwttoken')
+  res.clearCookie('servizzyJwtToken')
   await req.user.save();
   res.redirect('/')
 }catch(err){
@@ -79,7 +79,7 @@ try{
 // })
 
 router.get('/',(req,res)=>{
-  if(req.cookies.jwttoken){
+  if(req.cookies.servizzyJwtToken){
       res.redirect('/services')
   }
   else{

@@ -2,7 +2,7 @@ const jwt=require('jsonwebtoken')
 const adminModel=require('../model/Schema/adminSchema')
 const authenticate=async(req,res,next)=>{
     try{
-        const token=req.cookies.jwttoken;
+        const token=req.cookies.servizzyJwtToken;
         const verifyToken=jwt.verify(token,process.env.SECRET_KEY)
         const rootuser=await adminModel.findOne({_id:verifyToken._id,"tokens.token":token});
         if(!rootuser){
