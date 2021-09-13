@@ -46,19 +46,19 @@ router.get('/carInspection/:id',authenticate,async(req,res)=>{
 router.post('/carInspection/edit',authenticate,async(req,res)=>{
 try{
 const id=req.body.id;
-console.log(id)
+// console.log(id)
 const desc1=req.body.desc1;
 const desc2=req.body.desc2;
 const time=req.body.time;
 const price=req.body.price;
-console.log(desc1+" "+desc2+" "+time+" "+price)
+// console.log(desc1+" "+desc2+" "+time+" "+price)
 const data=await CarInspectionPackModel.findByIdAndUpdate(id,{
     warnOne:desc1,
     warnTwo:desc2,
     time:time,
     price:price
 })
-console.log(data);
+// console.log(data);
 req.flash('success_msg','Car Inspection Services Updated Successfully')
 res.redirect('/carInspection')
 }catch(err){

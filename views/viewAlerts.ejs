@@ -21,7 +21,7 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
     />
-    <title>Manage Users</title>
+    <title>Manage User Alerts</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -61,7 +61,7 @@
         </button></a>
       </div>
     </nav>
-    <h2 class="heading card1-h text-uppercase text-center mt-5">User Details</h2>
+    <h2 class="heading card1-h text-uppercase text-center mt-5">User Alerts</h2>
     
     <div class="container table-responsive">
       <%- include('message') %>
@@ -69,36 +69,29 @@
         <thead class="thead-dark">
             <% if(data.length >0){%>
           <tr>
-            <th scope="col">S.No</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email-Id</th>
-            <th scope="col">Phone No.</th>
-            <th scope="col">Action</th>
+            <th scope="col">Vehicle Number</th>
+            <th scope="col">Insurance Name</th>
+            <th scope="col">Expiry Date</th>
+            <th scope="col">Reminder</th>
           </tr>
         </thead>
             <tbody>
                 <tbody>
                     <% data.forEach(function(row,index){%>
                   <tr>
-                    <th scope="row"><%=index+1 %></th>
-                    <td><%=row.name%></td>
-                    <td><%=row.email%></td>
-                    <td><%=row.phoneNumber%></td>
-                    <td class="text-center delete">
-                      <!-- <a href="/user/view/<%=row._id %>" ><i class="fas fa-eye blue-eye"></i></a>&nbsp;&nbsp; &nbsp; -->
-                      <a href="/user/view/<%=row._id %>" title="service history"><i class="fas fa-history blue-eye"></i></a>&nbsp;&nbsp; &nbsp;
-                      <a href="/user/user-alerts/<%=row._id %>" title="insurance alerts" ><i class="fas fa-file blue-eye"></i></a>&nbsp;&nbsp; &nbsp;
-                      <a href="/user/user-cars/<%=row._id %>"  title="User Fleet details"><i class="fas fa-car blue-eye"></i></a>&nbsp;&nbsp; &nbsp;
-                      <a href="/user/delete/<%=row._id %>" onclick="return confirm('Are You Sure?')"><i class="fas fa-trash"></i></a>
-                    </td>
+                    <td><%= row.vehicalNumber%></td>
+                    <td><%= row.insuranceName %></td>
+                    <td><%= row.insurerExpiryDate %></td>
+                    <td><%= row.alertAt %></td>
                   </tr>
             <%})%>
                 </tbody>
               </tbody>
         <% }else{%>
-            <p>No User Found</p>
+            <p>No Alerts Available</p>
        <% }%>
       </table>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   </body>
 </html>

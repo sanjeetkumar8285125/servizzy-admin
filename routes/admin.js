@@ -27,20 +27,20 @@ router.post('/login',async(req,res)=>{
     const {email,password}=req.body
     if(!email || !password){
       req.flash('error_msg',"email and password cannot be blank")
-      res.redirect('/login')
+    return  res.redirect('/')
       // return res.status(400).json({message:"email and password cannot be blank"});
     }
     const user=await adminModel.findOne({email:email})
     if(!user){
       req.flash('error_msg',"user not registered")
-      res.redirect('/login')
+    return  res.redirect('/')
       //  res.status(400).json({message:"user not registered"})
     }
   else{
     const isMatched=bcrypt.compareSync(password,user.password)
     if(!isMatched){
       req.flash('error_msg',"Invalid Credentials")
-      res.redirect('/login')
+     return res.redirect('/')
       //  res.status(400).json({message:"Invalid Credentials",success:false})
     }
     else{
@@ -54,7 +54,7 @@ router.post('/login',async(req,res)=>{
   }
   }catch(err){
     console.log(err)
-    res.redirect('/login')
+    res.redirect('/')
 // res.status(400).json({message:"Something went wrong",err:err.message})
   }
   

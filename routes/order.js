@@ -1,6 +1,8 @@
 const express=require('express');
 const router=express.Router();
 const orderModel=require('../model/Schema/orderModel')
+const ChallanAndInsuranceModel = require('../model/Schema/ChallanAndInsuranceModel');
+const ServiceModel = require("../model/Schema/ServiceModel");
 const authenticate=require('../middleware/auhenticate')
 const upload=require('../utils/multer');
 const cloudinary=require('../utils/cloudinary')
@@ -17,6 +19,30 @@ router.get('/user/view/:id',authenticate,async(req,res)=>{
     try{
         const data=await orderModel.find({userId:id},null,{sort:{'createdAt':-1}});
          res.render('viewOrder',{data:data})
+        //res.status(200).json({data:data})
+    }catch(err){
+        res.status(400).json({message:"Something went Wrong",err:err})
+    }
+
+})
+
+router.get('/user/user-alerts/:id',authenticate,async(req,res)=>{
+    const id=req.params.id;
+    try{
+        const data=await ChallanAndInsuranceModel.find({userId:id}).sort({'_id':-1});
+         res.render('viewAlerts',{data:data})
+        //res.status(200).json({data:data})
+    }catch(err){
+        res.status(400).json({message:"Something went Wrong",err:err})
+    }
+
+})
+
+router.get('/user/user-cars/:id',authenticate,async(req,res)=>{
+    const id=req.params.id;
+    try{
+        const data=await ServiceModel.find({userId:id}).sort({'_id':-1});
+         res.render('viewCars',{data:data})
         //res.status(200).json({data:data})
     }catch(err){
         res.status(400).json({message:"Something went Wrong",err:err})

@@ -113,7 +113,11 @@ table {
 .blue-eye {
   color: #1f85de !important;
 }
-
+/* #flex-up-doc{
+  display: flex;
+  justify-content: space-around;
+  height: inherit;
+} */
 /* .container{
   width: 1400px;
 } */

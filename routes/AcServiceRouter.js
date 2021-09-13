@@ -76,7 +76,7 @@ router.get("/acServices/:id", authenticate, async (req, res) => {
 router.post("/acServices/edit", authenticate, async (req, res) => {
   try {
     const id = req.body.id;
-    console.log(id);
+    // console.log(id);
     const desc1 = req.body.desc1;
     const desc2 = req.body.desc2;
     const time = req.body.time;

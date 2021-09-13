@@ -37,14 +37,14 @@ fetch("/javascripts/carsdata.json")
 
     add.addEventListener("change", () => {
       
-      console.log(car);
+      // console.log(car);
       model = add.value;
-      console.log(model);
+      // console.log(model);
      
       model = car.models.find((x) => {
         return x.modelName === model;
       });
-      console.log(model);
+      // console.log(model);
       var select3 = document.getElementById("fueltype");
       while (select3.firstChild) {
         select3.removeChild(select3.firstChild);
