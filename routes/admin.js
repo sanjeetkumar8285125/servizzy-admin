@@ -74,10 +74,18 @@ try{
 })
 
 
-router.get('/',(req,res)=>{
-  res.render('login');
-})
+// router.get('/',(req,res)=>{
+//   res.render('login');
+// })
 
+router.get('/',(req,res)=>{
+  if(req.cookies.jwttoken){
+      res.redirect('/services')
+  }
+  else{
+      res.render('login')
+  }
+ })
 module.exports = router;
 
 

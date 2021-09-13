@@ -86,3 +86,8 @@ button:hover {
     padding: 20px 0;
   }
 }
+
+#brand-title-servizzy {
+  margin: 40px 0px;
+  font-size: 2rem;
+}
