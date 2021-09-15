@@ -25,7 +25,7 @@ router.post('/paintService',authenticate,async(req,res)=>{
                 "Full Body Dent Paint"
             ]}}
         ]})
-res.render('paintJobService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
+res.render('paintJobService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType,role:req.user.role})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})
     }
@@ -33,7 +33,7 @@ res.status(400).json({message:"Something went wrong",success:false,err:err})
 
 router.get('/paintService',authenticate,(req,res)=>{
     try{
-     res.render('paintJobService',{data:'',message:'',brandName:'',brandModel:'',fuelType:''})
+     res.render('paintJobService',{data:'',message:'',brandName:'',brandModel:'',fuelType:'',role:req.user.role})
     }
     catch(err){
         res.status(400).json({message:"Something went wrong"})
@@ -44,7 +44,7 @@ router.get('/paintService/:id',authenticate,async(req,res)=>{
     try{
         const id=req.params.id
         const data=await PaintJobModels.findById({_id:id})
-        res.render('editpaintJobService',{data:data});
+        res.render('editpaintJobService',{data:data,role:req.user.role});
         // res.status(200).json({data:data})
     }catch(err){
         res.status(400).json({message:"Something went wrong",success:false,err:err})

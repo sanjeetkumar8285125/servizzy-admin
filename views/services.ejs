@@ -46,6 +46,11 @@
           <li class="nav-item mx-4">
             <a class="nav-link " href="/offlineOrder">Offline Order</a>
           </li>
+          <% if(role=='superAdmin') {%>
+            <li class="nav-item mx-4">
+              <a class="nav-link" href="/addAdmin">Add Admin</a>
+            </li>
+            <%}%>
         </ul>
        
       <a href="/logout"><button class="btn btn-success my-2 my-sm-0" >
@@ -56,6 +61,7 @@
     </nav>
 
     <div class="container my-5">
+      <%-include('message') %>
       <h2 class="heading card1-h text-uppercase text-center">Core Services</h2>
       <div class="row mb-5 text-center">
         

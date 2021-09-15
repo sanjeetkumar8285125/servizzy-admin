@@ -18,7 +18,7 @@ router.post('/insuranceService',authenticate,async(req,res)=>{
                 "Insurance Claim"
             ]}}
         ]})
-res.render('insuranceService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
+res.render('insuranceService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType,role:req.user.role})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})
     }
@@ -26,7 +26,7 @@ res.status(400).json({message:"Something went wrong",success:false,err:err})
 
 router.get('/insuranceService',authenticate,(req,res)=>{
     try{
-     res.render('insuranceService',{data:'',message:'',brandName:'',brandModel:'',fuelType:''})
+     res.render('insuranceService',{data:'',message:'',brandName:'',brandModel:'',fuelType:'',role:req.user.role})
     }
     catch(err){
         res.status(400).json({message:"Something went wrong"})
@@ -37,7 +37,7 @@ router.get('/insuranceService/:id',authenticate,async(req,res)=>{
     try{
         const id=req.params.id
         const data=await insuranceModel.findById({_id:id})
-        res.render('editinsuranceService',{data:data});
+        res.render('editinsuranceService',{data:data,role:req.user.role});
         // res.status(200).json({data:data})
     }catch(err){
         res.status(400).json({message:"Something went wrong",success:false,err:err})

@@ -22,7 +22,7 @@ router.post('/mechanicalService',authenticate,async(req,res)=>{
                 ]
             }}
         ]})
-res.render('mechanicalServices',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
+res.render('mechanicalServices',{data:data,message:"No Service Available for",brandName,brandModel,fuelType,role:req.user.role})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})
     }
@@ -30,7 +30,7 @@ res.status(400).json({message:"Something went wrong",success:false,err:err})
 
 router.get('/mechanicalService',authenticate,(req,res)=>{
     try{
-     res.render('mechanicalServices',{data:'',message:'',brandName:'',brandModel:'',fuelType:''})
+     res.render('mechanicalServices',{data:'',message:'',brandName:'',brandModel:'',fuelType:'',role:req.user.role})
     }
     catch(err){
         res.status(400).json({message:"Something went wrong"})
@@ -41,7 +41,7 @@ router.get('/mechanicalService/:id',authenticate,async(req,res)=>{
     try{
         const id=req.params.id
         const data=await MecahanicalPackModel.findById({_id:id})
-        res.render('editmechanicalServices',{data:data});
+        res.render('editmechanicalServices',{data:data,role:req.user.role});
         // res.status(200).json({data:data})
     }catch(err){
         res.status(400).json({message:"Something went wrong",success:false,err:err})

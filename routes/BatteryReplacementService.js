@@ -17,7 +17,7 @@ router.post('/batteryService',authenticate,async(req,res)=>{
                 ]
             }}
         ]})
-res.render('batteryReplacementService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
+res.render('batteryReplacementService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType,role:req.user.role})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})
     }
@@ -25,7 +25,7 @@ res.status(400).json({message:"Something went wrong",success:false,err:err})
 
 router.get('/batteryService',authenticate,(req,res)=>{
     try{
-     res.render('batteryReplacementService',{data:'',message:'',brandName:'',brandModel:'',fuelType:''})
+     res.render('batteryReplacementService',{data:'',message:'',brandName:'',brandModel:'',fuelType:'',role:req.user.role})
     }
     catch(err){
         res.status(400).json({message:"Something went wrong"})
@@ -36,7 +36,7 @@ router.get('/batteryServices/:id',authenticate,async(req,res)=>{
     try{
         const id=req.params.id
         const data=await batteryServiceModel.findById({_id:id})
-        res.render('editbatteryReplacementService',{data:data});
+        res.render('editbatteryReplacementService',{data:data,role:req.user.role});
         // res.status(200).json({data:data})
     }catch(err){
         res.status(400).json({message:"Something went wrong",success:false,err:err})

@@ -4,7 +4,9 @@ const checkEmail=async(req,res,next)=>{
         const email=req.body.email;
         const checkExistEmail=await adminModel.findOne({email:email});
         if(checkExistEmail){
-            return res.status(409).json({message:"Email Id already exist"});
+            req.flash('error_msg','Email Id already exist')
+            return res.redirect('/addAdmin')
+            // return res.status(409).json({message:"Email Id already exist"});
         }
         next();
     }catch(err){

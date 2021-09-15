@@ -57,6 +57,11 @@
           <li class="nav-item mx-4">
             <a class="nav-link " href="/offlineOrder">Offline Order</a>
           </li>
+          <% if(role=='superAdmin') {%>
+            <li class="nav-item mx-4">
+              <a class="nav-link" href="/addAdmin">Add Admin</a>
+            </li>
+            <%}%>
         </ul>
         <a href="/logout">  <button class="btn btn-success my-2 my-sm-0">
           Logout

@@ -18,7 +18,7 @@ router.get('/user/view/:id',authenticate,async(req,res)=>{
     const id=req.params.id;
     try{
         const data=await orderModel.find({userId:id},null,{sort:{'createdAt':-1}});
-         res.render('viewOrder',{data:data})
+         res.render('viewOrder',{data:data,role:req.user.role})
         //res.status(200).json({data:data})
     }catch(err){
         res.status(400).json({message:"Something went Wrong",err:err})
@@ -30,7 +30,7 @@ router.get('/user/user-alerts/:id',authenticate,async(req,res)=>{
     const id=req.params.id;
     try{
         const data=await ChallanAndInsuranceModel.find({userId:id}).sort({'_id':-1});
-         res.render('viewAlerts',{data:data})
+         res.render('viewAlerts',{data:data,role:req.user.role})
         //res.status(200).json({data:data})
     }catch(err){
         res.status(400).json({message:"Something went Wrong",err:err})
@@ -53,7 +53,7 @@ router.get('/user/user-cars/:id',authenticate,async(req,res)=>{
 router.get('/onGoingOrder',authenticate,async(req,res)=>{
     try{
 const data=await orderModel.find({orderStatus:'false'},null,{sort:{'createdAt':-1}})
-res.render('ongoingOrder',{data:data})
+res.render('ongoingOrder',{data:data,role:req.user.role})
 //res.status(200).json({data:data})
     }catch(err){
         res.status(200).json({message:"Something went wrong",err:err})
@@ -62,7 +62,7 @@ res.render('ongoingOrder',{data:data})
 router.get('/completedOrder',authenticate,async(req,res)=>{
     try{
 const data=await orderModel.find({orderStatus:'true'},null,{sort:{'updatedAt':-1}})
-res.render('completedOrder',{data:data})
+res.render('completedOrder',{data:data,role:req.user.role})
 //res.status(200).json({data:data})
     }catch(err){
         res.status(200).json({message:"Something went wrong",err:err})
@@ -74,7 +74,7 @@ res.render('completedOrder',{data:data})
 router.get('/admin/order/:id',authenticate,(req,res)=>{
     const orderid=req.params.id;
     try{
-res.render('editAdminOrder',{data:orderid})
+res.render('editAdminOrder',{data:orderid,role:req.user.role})
     }catch(err){
 res.status(400).json({message:"Something Went Wrong",err:err,success:false})
     }

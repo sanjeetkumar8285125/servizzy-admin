@@ -16,7 +16,7 @@ router.post('/windshieldService',authenticate,async(req,res)=>{
                 "Rear Windshield Change"]
             }}
         ]})
-res.render('windShieldService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
+res.render('windShieldService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType,role:req.user.role})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})
     }
@@ -24,7 +24,7 @@ res.status(400).json({message:"Something went wrong",success:false,err:err})
 
 router.get('/windshieldService',authenticate,(req,res)=>{
     try{
-     res.render('windShieldService',{data:'',message:'',brandName:'',brandModel:'',fuelType:''})
+     res.render('windShieldService',{data:'',message:'',brandName:'',brandModel:'',fuelType:'',role:req.user.role})
     }
     catch(err){
         res.status(400).json({message:"Something went wrong"})

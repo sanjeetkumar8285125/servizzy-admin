@@ -38,6 +38,7 @@ router.post("/ACService", authenticate, async (req, res) => {
       brandName,
       brandModel,
       fuelType,
+      role:req.user.role
     });
   } catch (err) {
     res
@@ -54,6 +55,7 @@ router.get("/ACService", authenticate, (req, res) => {
       brandName: "",
       brandModel: "",
       fuelType: "",
+      role:req.user.role
     });
   } catch (err) {
     res.status(400).json({ message: "Something went wrong" });
@@ -64,7 +66,7 @@ router.get("/acServices/:id", authenticate, async (req, res) => {
   try {
     const id = req.params.id;
     const data = await AcServicePackModel.findById({ _id: id });
-    res.render("editAcServices", { data: data });
+    res.render("editAcServices", { data: data,role:req.user.role });
     // res.status(200).json({data:data})
   } catch (err) {
     res

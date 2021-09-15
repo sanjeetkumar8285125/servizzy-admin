@@ -5,20 +5,60 @@ const bcrypt=require('bcrypt')
 const authenticate=require('../middleware/auhenticate');
 const checkmail=require('../middleware/checkEMail')
 
-router.post('/register',checkmail,async(req,res)=>{
-  const {name,email,password}=req.body
-  try{
-    if(!name || !email || !password){
-       return res.status(400).json({message:"All fields are required"});
-    }
-    const encryptPassword=bcrypt.hashSync(password,10);
-const admindata=new adminModel({
- name,email,password:encryptPassword
+router.get('/addAdmin',authenticate,async(req,res)=>{
+  if(req.user.role=='superAdmin'){
+      const data=await adminModel.find({},'-password')
+      res.render('addAdmin',{data:data,role:req.user.role})
+  }
+  else{
+      req.flash('error_msg','You can not add admin. Login as superAdmin')
+      res.redirect('/services')
+  }
+
 })
-const data=await admindata.save();
-res.status(201).json({message:"Admin registered Successfully",success:true,data:data})
+
+router.get('/admin/delete/:id',authenticate,async(req,res)=>{
+  const id=req.params.id;
+  try{
+  const data=await adminModel.findByIdAndDelete({_id:id})
+  req.flash('success_msg','admin deleted Successfully')
+  res.redirect('/addAdmin')
+  // res.status(200).json({message:"User deleted Successfully",success:true})
   }catch(err){
-res.status(400).json({message:"Something went wrong",success:false,err:err})
+    req.flash('error_msg','Something Went Wrong')
+  res.redirect('/addAdmin')
+    // res.status(400).json({message:"Something Went Wrong",success:false,err:err})
+  }
+})
+
+
+router.post('/addAdmin',checkmail,async(req,res)=>{
+  const {name,email,password,confPassword}=req.body
+  try{
+    let errors=[];
+        if(!name || !email || !password || !confPassword){
+            errors.push({msg:"All Fields required"});
+        }
+        if(password != confPassword ){
+            errors.push({msg:"Password did not match"});
+        }
+        if(errors.length > 0){
+          res.render('addAdmin',{errors:errors,name,email,password,confPassword,role:'',data:''})
+              }
+          else{
+            const encryptPassword=bcrypt.hashSync(password,10);
+            const admindata=new adminModel({
+             name,email,password:encryptPassword
+            })
+            const data=await admindata.save();
+            // res.status(201).json({message:"Admin registered Successfully",success:true,data:data})
+            req.flash('success_msg','Admin Added Successfully')
+            res.redirect('/addAdmin')
+          }
+  }catch(err){
+    req.flash('error_msg','Something went wrong')
+res.redirect('/addAdmin')
+// res.status(400).json({message:"Something went wrong",success:false,err:err})
   }
 })
 

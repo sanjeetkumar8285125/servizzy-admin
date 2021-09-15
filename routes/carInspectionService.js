@@ -16,7 +16,7 @@ router.post('/carInspection',authenticate,async(req,res)=>{
                 "Engine Issues"
             ]}}
         ]})
-res.render('carInspectionService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
+res.render('carInspectionService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType,role:req.user.role})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})
     }
@@ -24,7 +24,7 @@ res.status(400).json({message:"Something went wrong",success:false,err:err})
 
 router.get('/carInspection',authenticate,(req,res)=>{
     try{
-     res.render('carInspectionService',{data:'',message:'',brandName:'',brandModel:'',fuelType:''})
+     res.render('carInspectionService',{data:'',message:'',brandName:'',brandModel:'',fuelType:'',role:req.user.role})
     }
     catch(err){
         res.status(400).json({message:"Something went wrong"})
@@ -35,7 +35,7 @@ router.get('/carInspection/:id',authenticate,async(req,res)=>{
     try{
         const id=req.params.id
         const data=await CarInspectionPackModel.findById({_id:id})
-        res.render('editcarInspectionService',{data:data});
+        res.render('editcarInspectionService',{data:data,role:req.user.role});
         // res.status(200).json({data:data})
     }catch(err){
         res.status(400).json({message:"Something went wrong",success:false,err:err})

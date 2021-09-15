@@ -17,7 +17,7 @@ router.post('/cleaningService',authenticate,async(req,res)=>{
                 "Ceramic Coating & Treatment", 
             ]}}
         ]})
-res.render('carCleaningDetailingService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType})
+res.render('carCleaningDetailingService',{data:data,message:"No Service Available for",brandName,brandModel,fuelType,role:req.user.role})
     }catch(err){
 res.status(400).json({message:"Something went wrong",success:false,err:err})
     }
@@ -25,7 +25,7 @@ res.status(400).json({message:"Something went wrong",success:false,err:err})
 
 router.get('/cleaningService',authenticate,(req,res)=>{
     try{
-     res.render('carCleaningDetailingService',{data:'',message:'',brandName:'',brandModel:'',fuelType:''})
+     res.render('carCleaningDetailingService',{data:'',message:'',brandName:'',brandModel:'',fuelType:'',role:req.user.role})
     }
     catch(err){
         res.status(400).json({message:"Something went wrong"})
@@ -36,7 +36,7 @@ router.get('/cleaningService/:id',authenticate,async(req,res)=>{
     try{
         const id=req.params.id
         const data=await carCleaingModel.findById({_id:id})
-        res.render('editcarCleaningDetailingService',{data:data});
+        res.render('editcarCleaningDetailingService',{data:data,role:req.user.role});
         // res.status(200).json({data:data})
     }catch(err){
         res.status(400).json({message:"Something went wrong",success:false,err:err})

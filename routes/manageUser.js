@@ -5,7 +5,7 @@ const authenticate=require('../middleware/auhenticate')
 router.get('/user',authenticate,async(req,res)=>{
 try{
     const userData=await userModel.find();
-     res.render('user',{data:userData})
+     res.render('user',{data:userData,role:req.user.role})
     // res.status(200).json({message:"All user retrieved",data:userData});
 }catch(err){
     res.status(400).json({message:"Something went wrong",err:err.message})

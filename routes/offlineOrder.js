@@ -14,7 +14,7 @@ let fileHandler = function (err) {
   };
 
 router.get('/offlineOrder',authenticate,(req,res)=>{
-    res.render('offlineOrder')
+    res.render('offlineOrder',{role:req.user.role})
 })
 
 router.post('/offlineOrder',upload.single('invoicePdf'),async(req,res)=>{
