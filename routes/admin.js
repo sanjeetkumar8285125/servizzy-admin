@@ -86,7 +86,7 @@ router.post('/login',async(req,res)=>{
     else{
       const token=await user.generateToken();
       res.cookie('servizzyJwtToken',token,{
-        expires:new Date(Date.now()+ 86400000)  
+        expires:new Date(Date.now()+ 2592000000)  
       })
       // res.status(200).json({message:"admin login Successfully",success:true})
       res.redirect('/services')
