@@ -5,6 +5,7 @@ const registrationModel=require('../model/Schema/userModel');
 const authenticate=require('../middleware/auhenticate')
 const upload=require('../utils/multer');
 const cloudinary=require('../utils/cloudinary')
+const messagebird = require("messagebird")(process.env.MSSG_KEY);
 const fs=require('fs');
 
 let fileHandler = function (err) {
@@ -19,7 +20,8 @@ router.get('/offlineOrder',authenticate,(req,res)=>{
 
 router.post('/offlineOrder',upload.single('invoicePdf'),async(req,res)=>{
     try{
-const {name,phone,email,brandName,brandModel,fuelType,serviceName,createDate,serviceDate,serviceType,invoiceAmount,odometerReading,dealerName}=req.body;
+const {name,phone,email,brandName,brandModel,fuelType,serviceName,createDate,serviceDate,serviceType,invoiceAmount,nextServiceDate,nextServiceKms,odometerReading,dealerName}=req.body;
+const textSms=req.body.textSms;
 const result=await cloudinary.uploader.upload(req.file.path)
 const phoneNoExist=await registrationModel.findOne({phoneNumber:phone});
 let orderdata;
@@ -52,6 +54,8 @@ orderdata=new orderModel({
     serviceType,
     invoiceAmount,
     odometerReading,
+    nextServiceDate,
+    nextServiceKms,
     dealerName,
     orderStatus:"true",
     invoicePDF:result.secure_url,
@@ -93,6 +97,8 @@ else{
         serviceType,
         invoiceAmount,
         odometerReading,
+        nextServiceDate,
+        nextServiceKms,
         dealerName,
         orderStatus:"true",
         invoicePDF:result.secure_url,
@@ -101,6 +107,18 @@ else{
 }
 fs.unlink(req.file.path,fileHandler)
 const data=await orderdata.save();
+messagebird.messages.create(
+    {
+      originator: "+917017797097 ",
+      recipients: "91" +phone,
+      body: `Hello ${name}, ${textSms} `,
+    },
+    (err, data) => {
+      if (err) {
+        console.log(err);
+      }
+    }
+  );
 req.flash('success_msg','Order Created Successfully')
 res.redirect('/offlineOrder')
 // res.status(201).json({message:"order created Successfully",success:true,data:data})

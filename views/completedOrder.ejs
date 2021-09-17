@@ -83,9 +83,8 @@
             <th scope="col">Odometer Reading</th>
             <th scope="col">Invoice Amount</th>
             <th scope="col">Dealer Name</th>
-            <!-- <th scope="col">Pickup Address</th>
-            <th scope="col">Pickup Date</th>
-            <th scope="col">Pickup Slot</th> -->
+             <!-- <th scope="col">Next Service Due Date</th> -->
+            <!-- <th scope="col">Next Service Due Kms</th> -->
             <th scope="col">Payment Id</th>
             <th scope="col">Order Placed At</th>
             <th scope="col">Order Status</th>
@@ -123,11 +122,9 @@
                     <td><%= row.odometerReading%></td>
                     <td><%= row.invoiceAmount%></td>
                     <td><%= row.dealerName %></td>
-                    <!-- <td><%= row.pickUpAddress %></td>
-                    <td><%= row.pickUpDate %></td>
-                    <td><%= row.pickUpSlot %></td> -->
+                    <!-- <td><%= row.nextServiceDate %></td> -->
+                    <!-- <td><%= row.nextServiceKms %></td> -->
                     <td><%= row.paymentId %></td>
-                    
                     <td><%= moment(row.createdAt).format('MMMM Do YYYY, h:mm:ss a') %></td>
                     <td><% if(row.orderStatus==='true'){ %>
                           Completed

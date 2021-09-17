@@ -64,6 +64,12 @@ const OrderModelSchema = new mongoose.Schema(
       },
       cloudinary_id:{
          type:String
+      },
+      nextServiceDate:{
+         type:String
+      },
+      nextServiceKms:{
+         type:String
       }
    }, { timestamps: true, }
 );
