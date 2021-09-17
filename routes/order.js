@@ -85,6 +85,7 @@ router.post('/admin/order/status',authenticate,upload.single('invoicePdf'),async
 const {orderid,serviceDate,serviceType,invoiceAmount,odometerReading,dealerName,nextServiceDate,nextServiceKms}=req.body;
 const textSms=req.body.textSms;
 const userData=await orderModel.findOne({_id:orderid})
+//console.log(userData)
 const result=await cloudinary.uploader.upload(req.file.path)
 const data=await orderModel.updateOne({_id:orderid},{
 serviceDate,
@@ -100,10 +101,11 @@ cloudinary_id:result.public_id
 })
 fs.unlink(req.file.path,fileHandler)
 if(textSms!=''){
+    //console.log(userData.userDetails.phoneNumber+" "+userData.userDetails.name)
     messagebird.messages.create(
         {
           originator: "+917017797097 ",
-          recipients: "91" + userData.userDetails.phoneNumber,
+          recipients: "91" +userData.userDetails.phoneNumber,
           body: `Hello ${userData.userDetails.name}, ${textSms} `,
         },
         (err, data) => {
