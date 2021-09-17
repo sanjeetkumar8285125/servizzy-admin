@@ -99,18 +99,21 @@ invoicePDF:result.secure_url,
 cloudinary_id:result.public_id
 })
 fs.unlink(req.file.path,fileHandler)
-messagebird.messages.create(
-    {
-      originator: "+917017797097 ",
-      recipients: "91" + userData.userDetails.phoneNumber,
-      body: `Hello ${userData.userDetails.name}, ${textSms} `,
-    },
-    (err, data) => {
-      if (err) {
-        console.log(err);
-      }
-    }
-  );
+if(textSms!=''){
+    messagebird.messages.create(
+        {
+          originator: "+917017797097 ",
+          recipients: "91" + userData.userDetails.phoneNumber,
+          body: `Hello ${userData.userDetails.name}, ${textSms} `,
+        },
+        (err, data) => {
+          if (err) {
+            console.log(err);
+          }
+        }
+      );
+}
+
 req.flash('success_msg',"Order Data Submitted Successfully")
 res.redirect('/ongoingOrder')
     }catch(err){

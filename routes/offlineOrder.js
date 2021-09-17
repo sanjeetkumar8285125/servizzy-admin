@@ -27,9 +27,7 @@ const phoneNoExist=await registrationModel.findOne({phoneNumber:phone});
 let orderdata;
 if(phoneNoExist){
 orderdata=new orderModel({
-    // "userDetails.name":phoneNoExist.name,
-    // "userDetails.phoneNumber":phoneNoExist.phoneNumber,
-    // "userDetails.email":phoneNoExist.email,
+ 
     userDetails:{
         _id:phoneNoExist._id,
         name:phoneNoExist.name,
@@ -107,18 +105,22 @@ else{
 }
 fs.unlink(req.file.path,fileHandler)
 const data=await orderdata.save();
-messagebird.messages.create(
-    {
-      originator: "+917017797097 ",
-      recipients: "91" +phone,
-      body: `Hello ${name}, ${textSms} `,
-    },
-    (err, data) => {
-      if (err) {
-        console.log(err);
-      }
-    }
-  );
+if(textSms!=''){
+    console.log(textSms+" hello World")
+    messagebird.messages.create(
+        {
+          originator: "+917017797097 ",
+          recipients: "91" +phone,
+          body: `Hello ${name}, ${textSms} `,
+        },
+        (err, data) => {
+          if (err) {
+            console.log(err);
+          }
+        }
+      );
+}
+
 req.flash('success_msg','Order Created Successfully')
 res.redirect('/offlineOrder')
 // res.status(201).json({message:"order created Successfully",success:true,data:data})
